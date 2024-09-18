@@ -33,7 +33,7 @@
 			
 			<br /><br /><br /><br />
 			
-			<p align="center">Don't have an account?&nbsp;<a href="register.php" style="text-decoration:none; color:red;">Register Now!</a>
+			<p align="center">Don't have an account?&nbsp;<a href="./register.php" style="text-decoration:none; color:red;">Register Now!</a>
 
 			<p align="center"><a href="../index.php" style="text-decoration:none;">Go Back</a>
 		</form>
