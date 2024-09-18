@@ -7,8 +7,8 @@
 		<header>
 			<a href="./">
 				<div id="cd-logo">
-					<img src="img/ic_logo2.svg" alt="Logo" width="45" height="45" />
-					<p>Library Management System</p>
+					<img src="img/lg-1.png" alt="Logo" width="85" height="auto" />
+					<p>   Library Management System</p>
 				</div>
 			</a>
 		</header>
