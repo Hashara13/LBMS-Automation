@@ -2,7 +2,9 @@
 -- version 4.2.11
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
+ -- Host: 127.0.0.1
+-- Username: harry
+-- Password: librarian
 -- Generation Time: Mar 21, 2021 at 02:36 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
