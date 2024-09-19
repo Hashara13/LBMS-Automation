@@ -25,9 +25,8 @@ This project is focused on developing and testing a **Library Management System*
    ```bash
    git clone https://github.com/Hashara13/LBMS-Automation.git
 
-1. Navigate to the project directory:
+2. Navigate to the project directory:
    ```bash
    cd Libraryms-PHP
-
 
 
