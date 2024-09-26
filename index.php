@@ -1,5 +1,7 @@
 <?php
 	require "db_connect.php";
+	require_once __DIR__ . '/src/Librarian.php';
+
 	require "header.php";
 	session_start();
 	
