@@ -1,8 +1,16 @@
 <?php
-    require "../db_connect.php";
+if (defined('RUNNING_TEST')) {
+    $con = $this->mockDb; // Use the mocked database connection
+} else {
+    require "/../db_connect.php"; // Original connection for production
+}
+
+// Make sure to only include other necessary files if not running tests
+if (!defined('RUNNING_TEST')) {
     require "../message_display.php";
-	require "verify_librarian.php";
-	require "header_librarian.php";
+    require "verify_librarian.php";
+    require "header_librarian.php";
+}
 ?>
 
 <html>
