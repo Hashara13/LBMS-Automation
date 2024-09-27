@@ -1,4 +1,7 @@
 <?php
+if (!defined('PHPUNIT_TESTSUITE')) {
+    require "../db_connect.php"; 
+}
 	require "../db_connect.php";
 	require "../message_display.php";
 	require "verify_librarian.php";
