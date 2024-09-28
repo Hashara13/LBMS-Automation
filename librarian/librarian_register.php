@@ -45,11 +45,9 @@
 
 		<?php
 		if(isset($_POST['m_register'])) {
-			// Check if experience is sufficient
 			if($_POST['m_balance'] < 5) {
 				echo error_with_field("Experience must be at least 5 years to create an account", "m_balance");
 			} else {
-				// Check if username already exists
 				$query = $con->prepare("SELECT username FROM librarian WHERE username = ?;");
 				$query->bind_param("s", $_POST['m_user']);
 				$query->execute();
@@ -58,7 +56,6 @@
 				if(mysqli_num_rows($result) != 0) {
 					echo error_with_field("The username you entered is already taken", "m_user");
 				} else {
-					// Check if email already exists
 					$query = $con->prepare("SELECT email FROM librarian WHERE email = ?;");
 					$query->bind_param("s", $_POST['m_email']);
 					$query->execute();
@@ -67,7 +64,6 @@
 					if(mysqli_num_rows($result) != 0) {
 						echo error_with_field("An account is already registered with that email", "m_email");
 					} else {
-						// Insert new librarian
 						$query = $con->prepare("INSERT INTO librarian(username, password, name, email, experience) VALUES(?, ?, ?, ?, ?);");
 						$query->bind_param("ssssd", $_POST['m_user'], sha1($_POST['m_pass']), $_POST['m_name'], $_POST['m_email'], $_POST['m_balance']);
 						
@@ -77,7 +73,6 @@
 							$_SESSION['id'] = $con->insert_id; 
 							$_SESSION['username'] = $_POST['m_user'];
 
-							// Redirect to librarian home after registration
 							header('Location: home.php');
 							exit();
 						} else {

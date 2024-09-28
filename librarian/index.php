@@ -50,7 +50,7 @@
 				$_SESSION['type'] = "librarian";
 				$_SESSION['id'] = mysqli_fetch_array($result)[0];
 				$_SESSION['username'] = $_POST['l_user'];
-				header('Location: home.php');
+				header('Location: librarian/home.php');
 			}
 		}
 	?>
