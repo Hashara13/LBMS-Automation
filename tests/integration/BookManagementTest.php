@@ -18,12 +18,27 @@ class BookManagementTest extends TestCase
 
     public function testInsertAndDeleteBook()
     {
-        // ... (previous test case)
-    }
+        $isbn = '1234567890';
+        $title = 'Test Book';
+        $author = 'Test Author';
+        $category = 'Fiction';
+        $price = 29.99;
+        $copies = 5;
 
+        $stmt = $this->db->prepare("INSERT INTO book (isbn, title, author, category, price, copies) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssssdi", $isbn, $title, $author, $category, $price, $copies);
+        $stmt->execute();
+
+        $result = $this->db->query("SELECT * FROM book WHERE isbn = '$isbn'");
+        $this->assertEquals(1, $result->num_rows);
+
+        $this->db->query("DELETE FROM book WHERE isbn = '$isbn'");
+
+        $result = $this->db->query("SELECT * FROM book WHERE isbn = '$isbn'");
+        $this->assertEquals(0, $result->num_rows);
+    }
     public function testUpdateBookCopies()
     {
-        // Insert a book
         $isbn = '9876543210';
         $title = 'Update Test Book';
         $author = 'Update Test Author';
@@ -35,24 +50,20 @@ class BookManagementTest extends TestCase
         $stmt->bind_param("ssssdi", $isbn, $title, $author, $category, $price, $copies);
         $stmt->execute();
 
-        // Update the number of copies
         $newCopies = 5;
         $stmt = $this->db->prepare("UPDATE book SET copies = ? WHERE isbn = ?");
         $stmt->bind_param("is", $newCopies, $isbn);
         $stmt->execute();
 
-        // Verify the update
         $result = $this->db->query("SELECT copies FROM book WHERE isbn = '$isbn'");
         $row = $result->fetch_assoc();
         $this->assertEquals($newCopies, $row['copies']);
 
-        // Clean up
         $this->db->query("DELETE FROM book WHERE isbn = '$isbn'");
     }
 
     public function testSearchBookByTitle()
     {
-        // Insert test books
         $books = [
             ['1111111111', 'PHP Programming', 'John Doe', 'Programming', 45.99, 2],
             ['2222222222', 'MySQL Basics', 'Jane Smith', 'Database', 39.99, 3],
@@ -65,7 +76,6 @@ class BookManagementTest extends TestCase
             $stmt->execute();
         }
 
-        // Search for books with 'Programming' in the title
         $searchTerm = 'Programming';
         $result = $this->db->query("SELECT * FROM book WHERE title LIKE '%$searchTerm%'");
         
@@ -73,7 +83,6 @@ class BookManagementTest extends TestCase
         $row = $result->fetch_assoc();
         $this->assertEquals('PHP Programming', $row['title']);
 
-        // Clean up
         $this->db->query("DELETE FROM book WHERE isbn IN ('1111111111', '2222222222', '3333333333')");
     }
 }

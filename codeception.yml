@@ -1,0 +1,16 @@
+coverage:
+  enabled: true
+  low_limit: 80
+  high_limit: 90
+  include:
+    - tests/* # Adjust as necessary for your project structure
+  exclude:
+    - tests/* 
+
+paths:
+  tests: tests
+  output: tests/_output
+  data: tests/_data
+  support: tests/_support
+  envs: tests/_envs
+  app: . # Adjust this to point to your main application directory
