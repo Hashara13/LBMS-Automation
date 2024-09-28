@@ -11,7 +11,6 @@ class LibraryManagementCest
     {
     }
 
-    // tests
     public function tryToTest(AcceptanceTester $I)
     {
     }
