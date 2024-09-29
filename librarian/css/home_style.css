@@ -7,48 +7,67 @@ body {
 }
 
 #allTheThings {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   width: 90%;
-  max-width: 600px;
+  max-width: 1200px;
   margin: 4em auto;
-  font-size: 1.3rem;
-  color: #94aab0;
-  margin-bottom: 10px;
+}
+
+.card {
+  background-color: #ffe0b2;
+  color: #f57c00;
+  width: 48%;
+  margin-bottom: 2em;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card .popup {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #ff9800;
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+
+.card:hover .popup {
   display: block;
 }
 
-#allTheThings input[type="button"] {
+.card input[type="button"] {
   width: 100%;
   border: none;
-  border-radius: 30px;
-  background: #428594;
-  /* border-radius: 0.25em; */
+  border-radius: 15px;
+  background: #8c5613;
   padding: 16px 20px;
-  margin-bottom: 20px;
+  margin-top: 20px;
   color: #ffffff;
   font-weight: bold;
   font-family: "Open Sans", sans-serif;
   font-size: 1.6rem;
-  float: right;
   cursor: pointer;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -ms-appearance: none;
-  -o-appearance: none;
-  appearance: none;
 }
 
-#allTheThings input[type="button"]:focus {
+.card input[type="button"]:focus {
   outline: none;
-  background: #2b3e51;
+  background: #ef6c00;
 }
 
-#allTheThings input[type="button"]:active {
-  -webkit-transform: scale(0.9);
-  -moz-transform: scale(0.9);
-  -ms-transform: scale(0.9);
-  -o-transform: scale(0.9);
+.card input[type="button"]:active {
   transform: scale(0.9);
 }
 
